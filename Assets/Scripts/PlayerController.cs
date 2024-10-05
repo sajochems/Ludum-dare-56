@@ -16,10 +16,13 @@ public class PlayerController : MonoBehaviour
     private InputAction fire;
     private InputAction interact;
 
+    private GameObject collisionObject;
+
 
     private void Awake()
     {
         playerControls = new PlayerInputActions();
+        GameState.Init();
     }
 
     private void OnEnable()
@@ -69,7 +72,15 @@ public class PlayerController : MonoBehaviour
 
     private void Interact(InputAction.CallbackContext context)
     {
-        GameState.SwitchState();
+        if (collisionObject != null)
+        {
+            if (collisionObject.name == "Home")
+            {
+                collisionObject.GetComponent<Home>().UseHouse();
+            }
+
+        }
+
         if (GameState.FightState())
         {
             //What happens on interact in the fighting state
@@ -79,5 +90,15 @@ public class PlayerController : MonoBehaviour
         {
             //what happens on interact in the building state
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        collisionObject = collision.gameObject;
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        collisionObject = null;
     }
 }

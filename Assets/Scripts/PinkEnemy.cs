@@ -12,23 +12,28 @@ public class PinkEnemy : MonoBehaviour
 
     private float health;
     private float speed;
-    private float damage;
+    private float strength;
     private float scoreIncrease;
 
     private void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 
+
+
         health = 100f;
         speed = 1f;
-        damage = 1f;
+        strength = 1f;
         scoreIncrease = 20f;
     }
 
     private void FixedUpdate()
     {
-        Vector2 direction = new Vector2(target.position.x - transform.position.x, target.position.y - transform.position.y);
-        rb.velocity = new Vector2(direction.x * speed, direction.y * speed);
+        //Vector2 playerDirection = new Vector2(target.position.x - transform.position.x, target.position.y - transform.position.y);
+        //rb.velocity = new Vector2(playerDirection.x * speed, playerDirection.y * speed);
+
+        Vector2 homeDirection = new Vector2(0f - transform.position.x, 0f - transform.position.y);
+        rb.velocity = new Vector2(homeDirection.x * speed, homeDirection.y * speed);
     }
 
     public void TakeDamage(float damage)
@@ -39,6 +44,11 @@ public class PinkEnemy : MonoBehaviour
         {
             Die();
         }
+    }
+
+    public float Attack()
+    {
+        return strength;
     }
 
     void Die()
