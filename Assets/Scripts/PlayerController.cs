@@ -9,10 +9,12 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rb;
     public float moveSpeed = 1.5f;
     public PlayerInputActions playerControls;
+    public Weapon weapon;
 
     private Vector2 moveDirection = Vector2.zero;
     private InputAction move;
     private InputAction fire;
+
 
     private void Awake()
     {
@@ -35,6 +37,7 @@ public class PlayerController : MonoBehaviour
         fire.Disable();
     }
 
+
     private void Update()
     {
         moveDirection = move.ReadValue<Vector2>();
@@ -47,7 +50,6 @@ public class PlayerController : MonoBehaviour
 
     private void Fire(InputAction.CallbackContext context)
     {
-        Vector3 mousePos = Input.mousePosition;
-        Debug.Log("We Fired at: (" + mousePos.x + ", " + mousePos.y + ")");
+        weapon.UseWeapon();     
     }
 }
