@@ -29,10 +29,6 @@ public class Weapon : MonoBehaviour
     public void UseWeapon()
     {
         var bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
-
-        Vector3 bulletDirection = new Vector3(bulletSpawnPoint.position.x, bulletSpawnPoint.position.y, bulletSpawnPoint.position.z);
-
         bullet.GetComponent<Rigidbody2D>().velocity = bulletSpawnPoint.right * bulletSpeed;
-        Debug.Log(bulletSpawnPoint + " + " + bulletSpawnPoint.up);
     }
 }
