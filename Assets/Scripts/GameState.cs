@@ -11,7 +11,6 @@ public class GameState : MonoBehaviour
 
     public static void SwitchState()
     {
-        Debug.Log("fightState=" + fightState + ", buildState=" + buildState);
         fightState = fightState ? false : true;
         buildState = buildState ? false : true;
         Debug.Log("fightState=" +  fightState + ", buildState=" + buildState);

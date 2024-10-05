@@ -8,6 +8,7 @@ public class Weapon : MonoBehaviour
     public Transform bulletSpawnPoint;
     public GameObject bulletPrefab;
     public float bulletSpeed = 10f;
+    public float bulletDamage = 20f;
 
     private Vector3 mousePos;
     private Camera mainCam;
@@ -29,6 +30,7 @@ public class Weapon : MonoBehaviour
     public void UseWeapon()
     {
         var bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+        bullet.GetComponent<Bullet>().SetDamage(bulletDamage);
         bullet.GetComponent<Rigidbody2D>().velocity = bulletSpawnPoint.right * bulletSpeed;
     }
 }
