@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 moveDirection = Vector2.zero;
     private InputAction move;
     private InputAction fire;
+    private InputAction interact;
 
 
     private void Awake()
@@ -29,6 +30,10 @@ public class PlayerController : MonoBehaviour
         fire = playerControls.Player.Fire;
         fire.Enable();
         fire.performed += Fire;
+
+        interact = playerControls.Player.Interact;
+        interact.Enable();
+        interact.performed += Interact;
     }
 
     private void OnDisable()
@@ -50,6 +55,29 @@ public class PlayerController : MonoBehaviour
 
     private void Fire(InputAction.CallbackContext context)
     {
-        weapon.UseWeapon();     
+        if (GameState.FightState())
+        {
+            //What happens on click in the fighting state
+            weapon.UseWeapon();
+
+        } else if(GameState.BuildState())
+        {
+            //what happens on click in the building state
+        }
+             
+    }
+
+    private void Interact(InputAction.CallbackContext context)
+    {
+        GameState.SwitchState();
+        if (GameState.FightState())
+        {
+            //What happens on interact in the fighting state
+            
+        }
+        else if (GameState.BuildState())
+        {
+            //what happens on interact in the building state
+        }
     }
 }

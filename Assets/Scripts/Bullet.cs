@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class Bullet : MonoBehaviour
 {
@@ -16,7 +17,9 @@ public class Bullet : MonoBehaviour
         if(collision.gameObject.name != "Player")
         {
             Destroy(collision.gameObject);
+            GameState.IncreaseScore(20f);
             Destroy(gameObject);
+            Debug.Log(GameState.score);
         }    
     }
 }
