@@ -6,6 +6,7 @@ using static UnityEngine.GraphicsBuffer;
 public class GameState : MonoBehaviour
 {
     public static float score;
+    public static float numberOfCats;
 
     public static int enemiesLeft;
 
@@ -57,6 +58,7 @@ public class GameState : MonoBehaviour
         {
             score = 0;
         }
+        Debug.Log("Score: " + numberOfCats);
     }
 
     public static void DecreaseScore(float change)
@@ -66,5 +68,26 @@ public class GameState : MonoBehaviour
         {
             score = 0;
         }
+        Debug.Log("Score: " + numberOfCats);
+    }
+
+    public static void IncreaseCats(int change)
+    {
+        numberOfCats += change;
+        if (numberOfCats < 0)
+        {
+            numberOfCats = 0;
+        }
+        Debug.Log("Cats: " + numberOfCats);
+    }
+
+    public static void DecreaseCats(int change)
+    {
+        numberOfCats -= change;
+        if (numberOfCats < 0)
+        {
+            numberOfCats = 0;
+        }
+        Debug.Log("Cats: " + numberOfCats);
     }
 }

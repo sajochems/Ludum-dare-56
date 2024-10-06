@@ -25,7 +25,13 @@ public class WaveSpawner : MonoBehaviour
     {
         if(currentWaveIndex >= waves.Length)
         {
-            GameState.SwitchState("build");
+            if(GameState.enemiesLeft <= 0)
+            {
+                GameState.SwitchState("build");
+            } else
+            {
+                GameState.SwitchState("fight");
+            }
             return;
         }
 
