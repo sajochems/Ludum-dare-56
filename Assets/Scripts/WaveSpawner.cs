@@ -6,15 +6,21 @@ using UnityEngine;
 public class WaveSpawner : MonoBehaviour
 {
     [SerializeField] private float countdown;
-
-    [SerializeField] private GameObject spawnPoint;
+    [SerializeField] private int innerEnemyRadius;
+    [SerializeField] private int outerEnemyRadius;
 
     public Wave[] waves;
 
     [HideInInspector] public int currentWaveIndex = 0;
 
     private int spawningWave = -1;
+    private RadialCoordinateSampler CoordinateSampler;
 
+    private void Start()
+    {
+        CoordinateSampler = new RadialCoordinateSampler(innerEnemyRadius, outerEnemyRadius);
+    }
+    
     private void Update()
     {
         if(currentWaveIndex >= waves.Length)
@@ -51,8 +57,11 @@ public class WaveSpawner : MonoBehaviour
             {
                 spawningWave = currentWaveIndex;
                 GameState.enemiesLeft += 1;
-                GameObject enemy = Instantiate(waves[currentWaveIndex].enemies[i], spawnPoint.transform);
-                enemy.transform.SetParent(spawnPoint.transform);          
+
+                Vector2 coordinates = CoordinateSampler.SamplePoint(true);
+                Vector3 spawn = new Vector3(coordinates.x, coordinates.y, 0);
+
+                GameObject enemy = Instantiate(waves[currentWaveIndex].enemies[i], spawn, Quaternion.identity);
                 yield return new WaitForSeconds(waves[currentWaveIndex].timeToNextEnemy);
             }
 
