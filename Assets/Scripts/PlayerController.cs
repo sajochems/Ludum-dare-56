@@ -18,9 +18,6 @@ public class PlayerController : MonoBehaviour
 
     private GameObject collisionObject;
 
-    public AudioClip clip;
-
-
     private void Awake()
     {
         playerControls = new PlayerInputActions();
@@ -64,8 +61,6 @@ public class PlayerController : MonoBehaviour
         {
             //What happens on click in the fighting state
             weapon.UseWeapon();
-            AudioSource.PlayClipAtPoint(clip, gameObject.transform.localPosition, 0.25f);
-
         } else if(GameState.BuildState())
         {
             //what happens on click in the building state
