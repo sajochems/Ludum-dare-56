@@ -136,6 +136,8 @@ MonoBehaviour:
   bulletSpeed: 10
   bulletDamage: 20
   attackSpeed: 50
+  catFoodCost: 10
+  catCost: 1
 --- !u!58 &5788164007548823390
 CircleCollider2D:
   m_ObjectHideFlags: 0

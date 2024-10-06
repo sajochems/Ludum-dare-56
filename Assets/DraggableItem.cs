@@ -42,8 +42,19 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             Debug.Log("NO! >:(");
         } else
         {
-            blockedSpaces.Add(new Vector2(mousePos.x, mousePos.y));
-            Instantiate(buildingPrefab, mousePos, Quaternion.Euler(0, 0, 0));
+            //Check costs
+            CatTower ct = buildingPrefab.GetComponent<CatTower>();
+            if(ct.catFoodCost > GameState.catfood || ct.catCost > GameState.numberOfCats)
+            {
+                Debug.Log("it cost: " + ct.catFoodCost + " and you have: " + GameState.catfood);
+                Debug.Log("it cost: " + ct.catCost + " and you have: " + GameState.numberOfCats);
+            } else
+            {
+                GameState.DecreaseCatfood(ct.catFoodCost);
+                GameState.DecreaseCats(ct.catCost);
+                blockedSpaces.Add(new Vector2(mousePos.x, mousePos.y));
+                Instantiate(buildingPrefab, mousePos, Quaternion.Euler(0, 0, 0));
+            }         
         }
 
         
