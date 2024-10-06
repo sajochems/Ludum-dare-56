@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class PinkEnemy : MonoBehaviour
+class PinkEnemy : Enemy
 {
     
     public Rigidbody2D rb;
@@ -11,11 +11,11 @@ public class PinkEnemy : MonoBehaviour
     private Transform target;
     private Home home;
 
-    private float health;
+    
     private float speed;
     private float strength;
     private float attackSpeed;
-    private float scoreIncrease;
+    
 
     private bool inRangeOfHome = false;
 
@@ -53,16 +53,6 @@ public class PinkEnemy : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float damage)
-    {
-        health -= damage;
-        Debug.Log("Enemy health: " + health);
-        if (health <= 0)
-        {
-            Die();
-        }
-    }
-
     public void AttackHome()
     {
         if(Time.time - lastAttack >= 100/attackSpeed)
@@ -72,13 +62,6 @@ public class PinkEnemy : MonoBehaviour
         }     
     }
 
-
-    void Die()
-    {
-        GameState.IncreaseScore(scoreIncrease);
-        Destroy(gameObject);
-        Debug.Log("Enemy killed");
-    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
