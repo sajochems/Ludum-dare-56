@@ -5,7 +5,8 @@ using static UnityEngine.GraphicsBuffer;
 
 public class GameState : MonoBehaviour
 {
-    public static float score;
+    public static int score;
+    public static int catfood;
 
     public static int enemiesLeft;
 
@@ -54,21 +55,19 @@ public class GameState : MonoBehaviour
         return buildState;
     }
 
-    public static void IncreaseScore(float change)
+    public static void IncreaseScore(int change)
     {
         score += change;
-        if (score < 0)
-        {
-            score = 0;
-        }
+        catfood += change;
     }
 
-    public static void DecreaseScore(float change)
+
+    public static void DecreaseCatfood(int change)
     {
-        score -= change;
-        if (score < 0)
+        catfood -= change;
+        if (catfood < 0)
         {
-            score = 0;
+            catfood = 0;
         }
     }
 }

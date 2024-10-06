@@ -34,7 +34,7 @@ class PinkEnemy : Enemy
         //100f is 1 attack per second
         attackSpeed = 50f;
 
-        scoreIncrease = 20f;
+        scoreIncrease = 20;
         inRangeOfHome = false;
 
         lastAttack = 0f;

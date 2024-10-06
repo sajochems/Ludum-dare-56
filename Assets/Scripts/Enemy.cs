@@ -5,7 +5,7 @@ using UnityEngine;
 abstract class Enemy : MonoBehaviour
 {
     protected float health;
-    protected float scoreIncrease;
+    protected int scoreIncrease;
 
     protected WaveSpawner waveSpawner;
     
