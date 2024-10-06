@@ -13,12 +13,14 @@ public class GameState : MonoBehaviour
     static bool buildState = false;
 
     private static GameObject weapon;
+    private static GameObject buildMenu;
     
 
     public static void Init()
     {
         //There has to be a better way to do this
         weapon = GameObject.FindGameObjectWithTag("Weapon");
+        buildMenu = GameObject.FindGameObjectWithTag("BuildingPanel");
         enemiesLeft = 0;
         SwitchState("build");
     }
@@ -30,6 +32,7 @@ public class GameState : MonoBehaviour
             fightState = false;
             buildState = true;
             weapon.SetActive(false);
+            buildMenu.SetActive(true);
         }
 
         if (state.Equals("fight"))
@@ -37,6 +40,7 @@ public class GameState : MonoBehaviour
             fightState = true;
             buildState = false;
             weapon.SetActive(true);
+            buildMenu.SetActive(false);
         }
     }
 

@@ -36,14 +36,12 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         transform.SetParent(parentAfterDrag);
         Vector3 mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0;
-        //TODO check if valid position.
         float min = MinimumDistance(new Vector2(mousePos.x, mousePos.y));
         if(min < 0.5f)
         {
             Debug.Log("NO! >:(");
         } else
         {
-            Debug.Log(min);
             blockedSpaces.Add(new Vector2(mousePos.x, mousePos.y));
             Instantiate(buildingPrefab, mousePos, Quaternion.Euler(0, 0, 0));
         }
