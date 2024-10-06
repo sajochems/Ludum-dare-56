@@ -67,6 +67,11 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             {
                 GameState.DecreaseCatfood(ct.catFoodCost);
                 GameState.DecreaseCats(ct.catCost);
+                for(int i = 0; i<ct.catCost; i++)
+                {
+                    Destroy(GameObject.FindGameObjectWithTag("FollowCat"));
+                }
+
                 blockedSpaces.Add(new Vector2(mousePos.x, mousePos.y));
                 Instantiate(buildingPrefab, mousePos, Quaternion.Euler(0, 0, 0));
             }         

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 565234091493374102}
   - component: {fileID: 565234091493374103}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PinkEnemySprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 565234092074504706}
   - component: {fileID: 565234092074504705}
   - component: {fileID: 565234092074504704}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PinkEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}

@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Cat : MonoBehaviour
 {
+    public GameObject catPrefab;
+
     private AudioSource audioSource;
     private int randomSeed;
 
@@ -29,6 +31,9 @@ public class Cat : MonoBehaviour
     public void GrabThatCat()
     {
         GameState.IncreaseCats(1);
+        Vector3 position = new Vector3(transform.position.x, transform.position.y, 0);
+        Instantiate(catPrefab, position, transform.rotation);
+
         GetComponent<AudioSource>().Play();
         GetComponent<BoxCollider2D>().enabled = false;
         GetComponentInChildren<SpriteRenderer>().enabled = false;

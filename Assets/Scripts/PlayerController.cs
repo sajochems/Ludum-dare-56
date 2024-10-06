@@ -60,7 +60,11 @@ public class PlayerController : MonoBehaviour
     private void Fire(InputAction.CallbackContext context)
     {
         mistakeText.SetActive(false);
-        weapon.UseWeapon();
+        if (GameState.FightState())
+        {
+            weapon.UseWeapon();
+        }
+        
     }
 
     private void Interact(InputAction.CallbackContext context)
