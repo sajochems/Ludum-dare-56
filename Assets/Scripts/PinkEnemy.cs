@@ -36,6 +36,9 @@ class PinkEnemy : Enemy
         attackSpeed = 50f;
 
         scoreIncrease = (int)((strength + health)/10);
+
+        transform.localScale *= scoreIncrease;
+
         inRangeOfHome = false;
 
         lastAttack = 0f;
