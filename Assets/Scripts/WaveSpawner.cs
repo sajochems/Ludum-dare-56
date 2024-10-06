@@ -19,6 +19,7 @@ public class WaveSpawner : MonoBehaviour
     {
         if(currentWaveIndex >= waves.Length)
         {
+            GameState.SwitchState("build");
             return;
         }
 

@@ -8,7 +8,7 @@ abstract class Enemy : MonoBehaviour
     protected float scoreIncrease;
 
     protected WaveSpawner waveSpawner;
-
+    
     public void TakeDamage(float damage)
     {
         health -= damage;
@@ -25,8 +25,14 @@ abstract class Enemy : MonoBehaviour
         Destroy(gameObject);
 
         GameState.enemiesLeft -= 1;
+        Debug.Log(GameState.enemiesLeft);
 
         Debug.Log("Enemy killed");
+    }
+
+    public Transform GetTransform()
+    {
+        return transform;
     }
 
 }
