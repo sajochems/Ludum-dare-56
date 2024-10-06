@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using TMPro;
 
 public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     Transform parentAfterDrag;
 
     public GameObject buildingPrefab;
+    public TMP_Text catfoodCost;
+    public TMP_Text catCost;
+
     private Camera mainCam;
 
     private List<Vector2> blockedSpaces;
@@ -17,6 +21,10 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         blockedSpaces = new List<Vector2>();
         blockedSpaces.Add(new Vector2(0, 0));
+
+        CatTower ct = buildingPrefab.GetComponent<CatTower>();
+        catfoodCost.SetText(ct.catFoodCost.ToString());
+        catCost.SetText(ct.catCost.ToString());
     }
 
     public void OnBeginDrag(PointerEventData eventData)
