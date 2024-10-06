@@ -24,6 +24,9 @@ public class UIController : MonoBehaviour
 
         int score = GameState.score;
         scoreAmount.SetText(score.ToString());
+
+        int cats = GameState.numberOfCats;
+        catAmount.SetText(cats.ToString());
     }
 
 }

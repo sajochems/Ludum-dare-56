@@ -19,14 +19,14 @@ public class RadialCoordinateSampler
         int angle = rand.Next(0, 359);
         float angle_rad = angle * Mathf.Deg2Rad;
 
-        int dist = 0;
+        float dist = 0.1f * ((float) rand.Next(0,10));
 
         if(!ExcludeInnerRadius) {
-            dist = rand.Next(0, outerRad);
+            dist += (float)rand.Next(0, outerRad);
         } else {
-            dist = rand.Next(innerRad, outerRad);
+            dist += (float)rand.Next(innerRad, outerRad);
         }
 
-        return new Vector2(Mathf.Cos(angle_rad) * (float)dist, Mathf.Sin(angle_rad) * (float)dist);
+        return new Vector2(Mathf.Cos(angle_rad) * dist, Mathf.Sin(angle_rad) * dist);
     }
 }

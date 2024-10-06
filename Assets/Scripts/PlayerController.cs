@@ -78,7 +78,6 @@ public class PlayerController : MonoBehaviour
             {
                 collisionObject.GetComponent<Home>().UseHouse();
             }
-
         }
 
         if (GameState.FightState())
@@ -100,5 +99,13 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionExit2D(Collision2D collision)
     {
         collisionObject = null;
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Cat")
+        {
+            col.GetComponent<Cat>().GrabThatCat();
+        }
     }
 }

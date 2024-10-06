@@ -5,8 +5,10 @@ using static UnityEngine.GraphicsBuffer;
 
 public class GameState : MonoBehaviour
 {
+
     public static int score;
     public static int catfood;
+    public static int numberOfCats;
 
     public static int enemiesLeft;
 
@@ -68,6 +70,24 @@ public class GameState : MonoBehaviour
         if (catfood < 0)
         {
             catfood = 0;
+        }
+    }
+
+    public static void IncreaseCats(int change)
+    {
+        numberOfCats += change;
+        if (numberOfCats < 0)
+        {
+            numberOfCats = 0;
+        }
+    }
+
+    public static void DecreaseCats(int change)
+    {
+        numberOfCats -= change;
+        if (numberOfCats < 0)
+        {
+            numberOfCats = 0;
         }
     }
 }
