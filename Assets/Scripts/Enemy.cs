@@ -12,7 +12,6 @@ abstract class Enemy : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
-        Debug.Log("Enemy health: " + health);
         if (health <= 0)
         {
             Die();
@@ -23,11 +22,7 @@ abstract class Enemy : MonoBehaviour
     {
         GameState.IncreaseScore(scoreIncrease);
         Destroy(gameObject);
-
         GameState.enemiesLeft -= 1;
-        Debug.Log(GameState.enemiesLeft);
-
-        Debug.Log("Enemy killed");
     }
 
     public Transform GetTransform()
