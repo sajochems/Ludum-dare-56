@@ -18,7 +18,6 @@ public class PlayerController : MonoBehaviour
 
     private GameObject collisionObject;
 
-
     private void Awake()
     {
         playerControls = new PlayerInputActions();
@@ -62,7 +61,6 @@ public class PlayerController : MonoBehaviour
         {
             //What happens on click in the fighting state
             weapon.UseWeapon();
-
         } else if(GameState.BuildState())
         {
             //what happens on click in the building state
