@@ -11,17 +11,15 @@ public class Home : MonoBehaviour
         GameState.SwitchState();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void takeDamage(float damage)
     {
-        if (collision.gameObject.name == "PinkEnemy")
+        health -= damage;
+        Debug.Log(health);
+        if (health <= 0)
         {
-            float damage = collision.gameObject.GetComponent<PinkEnemy>().Attack();
-            health -= damage;
-            if (health <= 0)
-            {
-                Destroy(gameObject);
-                Debug.Log("You lose");
-            }
+            Destroy(gameObject);
+            Debug.Log("You lose");
         }
+
     }
 }
