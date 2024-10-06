@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 58954080995909513}
   - component: {fileID: 58954080995909512}
   - component: {fileID: -4918184034648937626}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FollowCat
   m_TagString: FollowCat
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ GameObject:
   m_Component:
   - component: {fileID: 58954081143831711}
   - component: {fileID: 58954081143831704}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -202,7 +202,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 58954081824398955}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BulletSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2705834428900756453}
   - component: {fileID: 2705834428900756454}
   - component: {fileID: 2705834428900756455}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cat
   m_TagString: Cat
   m_Icon: {fileID: 0}
@@ -202,7 +202,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2705834430067671546}
   - component: {fileID: 2705834430067671549}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CatSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -24,9 +24,9 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         blockedSpaces = new List<Vector2>();
         blockedSpaces.Add(new Vector2(0, 0));
 
-        CatTower ct = buildingPrefab.GetComponent<CatTower>();
-        catfoodCost.SetText(ct.catFoodCost.ToString());
-        catCost.SetText(ct.catCost.ToString());
+        Tower ct = buildingPrefab.GetComponent<Tower>();
+        catfoodCost.SetText(ct.CatFoodCost().ToString());
+        catCost.SetText(ct.CatCost().ToString());
 
         mistakeText.SetActive(false);
     }
@@ -57,19 +57,20 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         } else
         {
             //Check costs
-            CatTower ct = buildingPrefab.GetComponent<CatTower>();
-            if(ct.catFoodCost > GameState.catfood || ct.catCost > GameState.numberOfCats)
+            Tower ct = buildingPrefab.GetComponent<Tower>();
+            if(ct.CatFoodCost() > GameState.catfood || ct.CatCost() > GameState.numberOfCats)
             {
                 mistakeText.SetActive(true);
-                mistakeText.GetComponent<TMP_Text>().SetText("it cost: " + ct.catFoodCost + " catfood and " + ct.catCost + " cats, but you have: " + GameState.catfood
+                mistakeText.GetComponent<TMP_Text>().SetText("it cost: " + ct.CatFoodCost() + " catfood and " + ct.CatCost() + " cats, but you have: " + GameState.catfood
                     + " catfood and " + GameState.numberOfCats + " cats");
             } else
             {
-                GameState.DecreaseCatfood(ct.catFoodCost);
-                GameState.DecreaseCats(ct.catCost);
-                for(int i = 0; i<ct.catCost; i++)
+                GameState.DecreaseCatfood(ct.CatFoodCost());
+                GameState.DecreaseCats(ct.CatCost());
+                GameObject[] cats = GameObject.FindGameObjectsWithTag("FollowCat");
+                for (int i = 0; i<ct.CatCost(); i++)
                 {
-                    Destroy(GameObject.FindGameObjectWithTag("FollowCat"));
+                    Destroy(cats[i]);
                 }
 
                 blockedSpaces.Add(new Vector2(mousePos.x, mousePos.y));
