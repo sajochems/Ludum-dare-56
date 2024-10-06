@@ -8,7 +8,7 @@ public class Home : MonoBehaviour
 
     public void UseHouse()
     {
-        GameState.SwitchState();
+        Debug.Log("Hello house");
     }
 
     public void takeDamage(float damage)

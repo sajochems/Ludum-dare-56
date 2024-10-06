@@ -27,11 +27,10 @@ public class WaveSpawner : MonoBehaviour
     {
         if(currentWaveIndex >= waves.Length)
         {
-            Debug.Log("All waves survived");
             return;
         }
 
-        if (readyToCountDown && GameState.FightState())
+        if (readyToCountDown)
         {
             countdown -= Time.deltaTime;
         }    
@@ -39,7 +38,7 @@ public class WaveSpawner : MonoBehaviour
         if(countdown <= 0)
         {
             readyToCountDown = false;
-
+            GameState.SwitchState("fight");
             countdown = waves[currentWaveIndex].timeToNextWave;
             StartCoroutine(SpawnWave());
         }
@@ -47,6 +46,7 @@ public class WaveSpawner : MonoBehaviour
         if(waves[currentWaveIndex].enemiesLeft <= 0)
         {
             readyToCountDown = true;
+            GameState.SwitchState("build");
             currentWaveIndex++;
         }
     }

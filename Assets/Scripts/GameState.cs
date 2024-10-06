@@ -11,22 +11,32 @@ public class GameState : MonoBehaviour
     static bool buildState = false;
 
     private static GameObject weapon;
+    
 
     public static void Init()
     {
         //There has to be a better way to do this
         weapon = GameObject.FindGameObjectWithTag("Weapon");
-        SwitchState();
+        SwitchState("build");
     }
 
-    public static void SwitchState()
+    public static void SwitchState(string state)
     {
-        
-        fightState = fightState ? false : true;
-        buildState = buildState ? false : true;
+
+        if (state.Equals("build")){
+            fightState = false;
+            buildState = true;
+            weapon.SetActive(false);
+        }
+
+        if (state.Equals("fight"))
+        {
+            fightState = true;
+            buildState = false;
+            weapon.SetActive(true);
+        }
+
         Debug.Log("fightState=" +  fightState + ", buildState=" + buildState);
-        if (buildState ) { weapon.SetActive(false); }
-        if (fightState ) { weapon.SetActive(true); }
     }
 
     public static bool FightState()
