@@ -31,9 +31,7 @@ public class WaveSpawner : MonoBehaviour
             return;
         }
 
-        
-
-        if (readyToCountDown)
+        if (readyToCountDown && GameState.FightState())
         {
             countdown -= Time.deltaTime;
         }    

@@ -28,7 +28,7 @@ class PinkEnemy : Enemy
         home = GameObject.FindGameObjectWithTag("Home").GetComponent<Home>();
 
         health = 100f;
-        speed = 1f;
+        speed = 0.25f;
         strength = 1f;
 
         //100f is 1 attack per second
