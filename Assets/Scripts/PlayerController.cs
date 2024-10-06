@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     public PlayerInputActions playerControls;
     public Weapon weapon;
 
+    public GameObject mistakeText;
+
     private Vector2 moveDirection = Vector2.zero;
     private InputAction move;
     private InputAction fire;
@@ -57,6 +59,7 @@ public class PlayerController : MonoBehaviour
 
     private void Fire(InputAction.CallbackContext context)
     {
+        mistakeText.SetActive(false);
         if (GameState.FightState())
         {
             //What happens on click in the fighting state

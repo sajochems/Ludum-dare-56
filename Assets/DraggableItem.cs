@@ -12,6 +12,8 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public TMP_Text catfoodCost;
     public TMP_Text catCost;
 
+    public GameObject mistakeText;
+
     private Camera mainCam;
 
     private List<Vector2> blockedSpaces;
@@ -25,6 +27,8 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         CatTower ct = buildingPrefab.GetComponent<CatTower>();
         catfoodCost.SetText(ct.catFoodCost.ToString());
         catCost.SetText(ct.catCost.ToString());
+
+        mistakeText.SetActive(false);
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -32,6 +36,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         parentAfterDrag = transform.parent;
         transform.SetParent(transform.root);
         transform.SetAsLastSibling();
+        mistakeText.SetActive(false);
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -47,15 +52,17 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         float min = MinimumDistance(new Vector2(mousePos.x, mousePos.y));
         if(min < 0.5f)
         {
-            Debug.Log("NO! >:(");
+            mistakeText.SetActive(true);
+            mistakeText.GetComponent<TMP_Text>().SetText("Invalid building location");
         } else
         {
             //Check costs
             CatTower ct = buildingPrefab.GetComponent<CatTower>();
             if(ct.catFoodCost > GameState.catfood || ct.catCost > GameState.numberOfCats)
             {
-                Debug.Log("it cost: " + ct.catFoodCost + " and you have: " + GameState.catfood);
-                Debug.Log("it cost: " + ct.catCost + " and you have: " + GameState.numberOfCats);
+                mistakeText.SetActive(true);
+                mistakeText.GetComponent<TMP_Text>().SetText("it cost: " + ct.catFoodCost + " catfood and " + ct.catCost + " cats, but you have: " + GameState.catfood
+                    + " catfood and " + GameState.numberOfCats + " cats");
             } else
             {
                 GameState.DecreaseCatfood(ct.catFoodCost);
