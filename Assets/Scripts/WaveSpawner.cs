@@ -5,11 +5,13 @@ using UnityEngine;
 
 public class WaveSpawner : MonoBehaviour
 {
-    [SerializeField] private float countdown;
     [SerializeField] private int innerEnemyRadius;
     [SerializeField] private int outerEnemyRadius;
 
-    public Wave[] waves;
+    private float countdown;
+    private LinkedList<Wave> waves;
+
+    public GameObject enemy;
 
     [HideInInspector] public int currentWaveIndex = 0;
 
@@ -19,22 +21,15 @@ public class WaveSpawner : MonoBehaviour
     private void Start()
     {
         CoordinateSampler = new RadialCoordinateSampler(innerEnemyRadius, outerEnemyRadius);
+
+        waves = new LinkedList<Wave>();
+        waves.AddFirst(new Wave(6, 2, 30));
+
+        countdown = 5;
     }
     
-    private void Update()
+    private void FixedUpdate()
     {
-        if(currentWaveIndex >= waves.Length)
-        {
-            if(GameState.enemiesLeft <= 0)
-            {
-                GameState.SwitchState("build");
-            } else
-            {
-                GameState.SwitchState("fight");
-            }
-            return;
-        }
-
         if(countdown > 0)
         {
             countdown -= Time.deltaTime;
@@ -42,13 +37,16 @@ public class WaveSpawner : MonoBehaviour
 
         if(countdown <= 0 && spawningWave != currentWaveIndex)
         {        
-            countdown = waves[currentWaveIndex].timeToNextWave;
+            countdown = waves.First.Value.timeToNextWave;
             StartCoroutine(SpawnWave());
+            GenerateNextWave();
         }
 
         if(GameState.enemiesLeft <= 0)
         {
-            GameState.SwitchState("build");
+            if( spawningWave != currentWaveIndex) {
+                GameState.SwitchState("build");
+            }
         } else
         {
             GameState.SwitchState("fight");
@@ -57,29 +55,43 @@ public class WaveSpawner : MonoBehaviour
 
     private IEnumerator SpawnWave()
     {
-        if(currentWaveIndex < waves.Length)
+        Wave wave = waves.First.Value;
+        waves.RemoveFirst();
+        spawningWave = currentWaveIndex;
+
+        for (int i = 0; i < wave.numEnemies; i++)
         {
-            for (int i = 0; i < waves[currentWaveIndex].enemies.Length; i++)
-            {
-                spawningWave = currentWaveIndex;
-                GameState.enemiesLeft += 1;
+            GameState.enemiesLeft += 1;
 
-                Vector2 coordinates = CoordinateSampler.SamplePoint(true);
-                Vector3 spawn = new Vector3(coordinates.x, coordinates.y, 0);
+            Vector2 coordinates = CoordinateSampler.SamplePoint(true);
+            Vector3 spawn = new Vector3(coordinates.x, coordinates.y, 0);
+    
+            Instantiate(enemy, spawn, Quaternion.identity);
+            yield return new WaitForSeconds(wave.timeToNextEnemy);
+        }
 
-                GameObject enemy = Instantiate(waves[currentWaveIndex].enemies[i], spawn, Quaternion.identity);
-                yield return new WaitForSeconds(waves[currentWaveIndex].timeToNextEnemy);
-            }
+        currentWaveIndex++;     
+    }
 
-            currentWaveIndex++;
-        }      
+    private void GenerateNextWave() {
+        int numEnemies = 6 + (int)Math.Pow(2, currentWaveIndex + 1);
+        float timeToNextEnemy = Mathf.Max(0.15f, 2f - ( 0.9f * (float)currentWaveIndex));
+        int timeToNextWave = Mathf.Max(22, (30 - currentWaveIndex));
+        waves.AddLast(new Wave(numEnemies, timeToNextEnemy, timeToNextWave));
     }
 }
 
 [System.Serializable]
 public class Wave
 {
-    public GameObject[] enemies;
+    public int numEnemies;
     public float timeToNextEnemy;
     public float timeToNextWave;
+
+    public Wave(int ne, float tn, float tw)
+    {
+        numEnemies = ne;
+        timeToNextEnemy = tn;
+        timeToNextWave = tw;
+    }
 }
