@@ -27,7 +27,7 @@ class PinkEnemy : Enemy
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         home = GameObject.FindGameObjectWithTag("Home").GetComponent<Home>();
 
-        health = 100f;
+        health = 10f;
         speed = 0.25f;
         strength = 1f;
 
