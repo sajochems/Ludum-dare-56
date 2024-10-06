@@ -59,7 +59,8 @@ public class PlayerController : MonoBehaviour
 
     private void Fire(InputAction.CallbackContext context)
     {
-        mistakeText.SetActive(false);           
+        mistakeText.SetActive(false);
+        weapon.UseWeapon();
     }
 
     private void Interact(InputAction.CallbackContext context)
