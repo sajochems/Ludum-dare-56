@@ -24,7 +24,7 @@ abstract class Enemy : MonoBehaviour
         GameState.IncreaseScore(scoreIncrease);
         Destroy(gameObject);
 
-        waveSpawner.waves[waveSpawner.currentWaveIndex].enemiesLeft--;
+        GameState.enemiesLeft -= 1;
 
         Debug.Log("Enemy killed");
     }

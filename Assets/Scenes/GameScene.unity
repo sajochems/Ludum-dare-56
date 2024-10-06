@@ -471,15 +471,13 @@ MonoBehaviour:
     - {fileID: 565234092074504711, guid: 6c95709a066b0324d869671e03332a34, type: 3}
     - {fileID: 565234092074504711, guid: 6c95709a066b0324d869671e03332a34, type: 3}
     timeToNextEnemy: 2
-    timeToNextWave: 3
-    enemiesLeft: 0
+    timeToNextWave: 10
   - enemies:
     - {fileID: 565234092074504711, guid: 6c95709a066b0324d869671e03332a34, type: 3}
     - {fileID: 565234092074504711, guid: 6c95709a066b0324d869671e03332a34, type: 3}
     - {fileID: 565234092074504711, guid: 6c95709a066b0324d869671e03332a34, type: 3}
     timeToNextEnemy: 5
     timeToNextWave: 2
-    enemiesLeft: 0
   currentWaveIndex: 0
 --- !u!4 &634944802
 Transform:

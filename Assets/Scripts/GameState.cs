@@ -5,7 +5,9 @@ using static UnityEngine.GraphicsBuffer;
 
 public class GameState : MonoBehaviour
 {
-    public  static float score;
+    public static float score;
+
+    public static int enemiesLeft;
 
     static bool fightState = true;
     static bool buildState = false;
@@ -17,6 +19,7 @@ public class GameState : MonoBehaviour
     {
         //There has to be a better way to do this
         weapon = GameObject.FindGameObjectWithTag("Weapon");
+        enemiesLeft = 0;
         SwitchState("build");
     }
 
@@ -35,8 +38,6 @@ public class GameState : MonoBehaviour
             buildState = false;
             weapon.SetActive(true);
         }
-
-        Debug.Log("fightState=" +  fightState + ", buildState=" + buildState);
     }
 
     public static bool FightState()
