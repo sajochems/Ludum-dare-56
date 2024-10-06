@@ -6,7 +6,7 @@ using UnityEngine.SocialPlatforms.Impl;
 public class Bullet : MonoBehaviour
 {
     public float life = 1.5f;
-    private float bulletDamage = 1f;
+    private int bulletDamage = 1;
     
     public AudioClip clip;
 
@@ -17,7 +17,7 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject, life);
     }
 
-    public void SetDamage(float damage)
+    public void SetDamage(int damage)
     {
         bulletDamage = damage; 
     }

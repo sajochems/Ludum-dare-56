@@ -9,7 +9,7 @@ public class FollowCat : MonoBehaviour
     public Transform bulletSpawnPoint;
     public GameObject bulletPrefab;
     public float bulletSpeed = 2f;
-    public float bulletDamage = 20f;
+    public int bulletDamage = 20;
 
     public float attackSpeed = 1000f;
 

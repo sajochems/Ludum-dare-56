@@ -12,7 +12,7 @@ class PinkEnemy : Enemy
     private Home home;
     
     private float speed;
-    private float strength;
+    private int strength;
     private float attackSpeed;
 
     private bool inRangeOfHome = false;
@@ -27,14 +27,15 @@ class PinkEnemy : Enemy
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         home = GameObject.FindGameObjectWithTag("Home").GetComponent<Home>();
 
-        health = 10f;
+        System.Random rand = new System.Random();
+        health = rand.Next(10, 120);
         speed = 0.25f;
-        strength = 1f;
+        strength = rand.Next(1, 10);
 
         //100f is 1 attack per second
         attackSpeed = 50f;
 
-        scoreIncrease = 20;
+        scoreIncrease = (int)((strength + health)/10);
         inRangeOfHome = false;
 
         lastAttack = 0f;

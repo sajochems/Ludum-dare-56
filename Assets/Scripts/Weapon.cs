@@ -8,7 +8,7 @@ public class Weapon : MonoBehaviour
     public Transform bulletSpawnPoint;
     public GameObject bulletPrefab;
     public float bulletSpeed = 10f;
-    public float bulletDamage = 20f;
+    public int bulletDamage = 20;
 
     private Vector3 mousePos;
     private Camera mainCam;

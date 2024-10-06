@@ -4,12 +4,12 @@ using UnityEngine;
 
 abstract class Enemy : MonoBehaviour
 {
-    protected float health;
+    protected int health;
     protected int scoreIncrease;
 
     protected WaveSpawner waveSpawner;
     
-    public void TakeDamage(float damage)
+    public void TakeDamage(int damage)
     {
         health -= damage;
         if (health <= 0)
