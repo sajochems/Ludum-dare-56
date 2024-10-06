@@ -59,16 +59,7 @@ public class PlayerController : MonoBehaviour
 
     private void Fire(InputAction.CallbackContext context)
     {
-        mistakeText.SetActive(false);
-        if (GameState.FightState())
-        {
-            //What happens on click in the fighting state
-            weapon.UseWeapon();
-        } else if(GameState.BuildState())
-        {
-            //what happens on click in the building state
-        }
-             
+        mistakeText.SetActive(false);           
     }
 
     private void Interact(InputAction.CallbackContext context)
@@ -79,16 +70,6 @@ public class PlayerController : MonoBehaviour
             {
                 collisionObject.GetComponent<Home>().UseHouse();
             }
-        }
-
-        if (GameState.FightState())
-        {
-            //What happens on interact in the fighting state
-            
-        }
-        else if (GameState.BuildState())
-        {
-            //what happens on interact in the building state
         }
     }
 
