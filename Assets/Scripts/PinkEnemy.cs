@@ -10,19 +10,20 @@ class PinkEnemy : Enemy
 
     private Transform target;
     private Home home;
-
     
     private float speed;
     private float strength;
     private float attackSpeed;
-    
 
     private bool inRangeOfHome = false;
 
     private float lastAttack = 0f;
 
+
     private void Start()
     {
+        waveSpawner = GetComponentInParent<WaveSpawner>();
+
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         home = GameObject.FindGameObjectWithTag("Home").GetComponent<Home>();
 

@@ -20,9 +20,9 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "PinkEnemy")
+        if (collision.gameObject.tag == "Enemy")
         {
-            collision.gameObject.GetComponent<PinkEnemy>().TakeDamage(bulletDamage);
+            collision.gameObject.GetComponent<Enemy>().TakeDamage(bulletDamage);
         }
         Destroy(gameObject);         
     }
