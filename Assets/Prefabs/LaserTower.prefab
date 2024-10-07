@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2002a4ee106abb348871af75367533d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  catFoodCost: 500
+  catFoodCost: 250
   catCost: 5
   bulletSpawnPoint: {fileID: 7799426056343274717}
   bulletPrefab: {fileID: 1676038088555040346, guid: 05c1c77b9180c234c8c75fbb185a4c8d, type: 3}

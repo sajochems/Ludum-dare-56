@@ -100,7 +100,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collisionObject.name == "Home")
+        if (collision.gameObject.name == "Home")
         {
             collisionObject = collision.gameObject;
         }
@@ -110,7 +110,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collisionObject.name == "Home")
+        if (collision.gameObject.name == "Home")
         {
             collisionObject = null;
         }
@@ -124,6 +124,14 @@ public class PlayerController : MonoBehaviour
         } else if (col.gameObject.name == "GunCatShop")
         {
             triggerObject = col.gameObject;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.name == "GunCatShop")
+        {
+            triggerObject = null;
         }
     }
 }
