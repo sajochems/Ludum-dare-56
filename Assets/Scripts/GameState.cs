@@ -64,6 +64,11 @@ public class GameState : MonoBehaviour
     public static void IncreaseScore(int change)
     {
         score += change;
+        
+    }
+
+    public static void IncreaseCatfood(int change)
+    {
         catfood += change;
     }
 

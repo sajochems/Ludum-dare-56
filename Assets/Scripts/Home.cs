@@ -10,7 +10,9 @@ public class Home : MonoBehaviour
 
     public void UseHouse()
     {
-        Debug.Log("Hello house");
+        GameState.DecreaseCats(1);
+        Destroy(GameObject.FindGameObjectWithTag("FollowCat"));
+        health += 10;
     }
 
     public void takeDamage(int damage)

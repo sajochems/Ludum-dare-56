@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     private InputAction interact;
 
     private GameObject collisionObject;
+    private GameObject triggerObject;
 
     private void Awake()
     {
@@ -73,7 +74,26 @@ public class PlayerController : MonoBehaviour
         {
             if (collisionObject.name == "Home")
             {
-                collisionObject.GetComponent<Home>().UseHouse();
+                if(GameState.numberOfCats >= 1)
+                {
+                    collisionObject.GetComponent<Home>().UseHouse();
+                }
+                
+            }      
+        }
+
+        if(triggerObject != null)
+        {
+            if (triggerObject.name == "GunCatShop")
+            {
+                if (GameState.catfood >= 100)
+                {
+                    triggerObject.GetComponent<GunCatShop>().BuyCat();
+                }
+                else
+                {
+                    Debug.Log("To expensive");
+                }
             }
         }
     }
@@ -93,6 +113,9 @@ public class PlayerController : MonoBehaviour
         if (col.gameObject.tag == "Cat")
         {
             col.GetComponent<Cat>().GrabThatCat();
+        } else if (col.gameObject.name == "GunCatShop")
+        {
+            triggerObject = col.gameObject;
         }
     }
 }

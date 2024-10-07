@@ -21,6 +21,7 @@ abstract class Enemy : MonoBehaviour
     void Die()
     {
         GameState.IncreaseScore(scoreIncrease);
+        GameState.IncreaseCatfood(scoreIncrease);
         Destroy(gameObject);
         GameState.enemiesLeft -= 1;
     }
