@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-class LaserTower : Tower
+class FireBallTower : Tower
 {
     public Transform bulletSpawnPoint;
     public GameObject bulletPrefab;
@@ -15,12 +15,12 @@ class LaserTower : Tower
     void Start()
     {
         targets = new Queue<Enemy>();
-        bulletSpeed = 10f;
-        bulletDamage = 69;
-        attackSpeed = 1000f;
+        bulletSpeed = 2f;
+        bulletDamage = 100;
+        attackSpeed = 200f;
 
-        catFoodCost = 100;
-        catCost = 5;
+        catFoodCost = 500;
+        catCost = 10;
     }
 
     // Update is called once per frame

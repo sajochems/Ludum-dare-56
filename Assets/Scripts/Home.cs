@@ -10,9 +10,16 @@ public class Home : MonoBehaviour
 
     public void UseHouse()
     {
+        if (health == 100){
+            return;
+        }
         GameState.DecreaseCats(1);
         Destroy(GameObject.FindGameObjectWithTag("FollowCat"));
         health += 10;
+        if(health > 100)
+        {
+            health = 100;
+        }
     }
 
     public void takeDamage(int damage)

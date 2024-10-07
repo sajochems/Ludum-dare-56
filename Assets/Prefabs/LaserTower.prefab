@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   catFoodCost: 500
-  catCost: 10
+  catCost: 5
   bulletSpawnPoint: {fileID: 7799426056343274717}
   bulletPrefab: {fileID: 1676038088555040346, guid: 05c1c77b9180c234c8c75fbb185a4c8d, type: 3}
 --- !u!50 &7799426056315477058

@@ -100,12 +100,20 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        collisionObject = collision.gameObject;
+        if (collisionObject.name == "Home")
+        {
+            collisionObject = collision.gameObject;
+        }
+
+        
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        collisionObject = null;
+        if (collisionObject.name == "Home")
+        {
+            collisionObject = null;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D col)
