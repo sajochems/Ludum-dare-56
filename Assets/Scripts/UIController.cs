@@ -37,4 +37,9 @@ public class UIController : MonoBehaviour
         houseHealth.SetText(homeHealth.ToString() + "/100");
     }
 
+    public void Exit()
+    {
+        home.takeDamage(200);
+    }
+
 }
