@@ -18,6 +18,7 @@ public class GameState : MonoBehaviour
     private static GameObject weapon;
     private static GameObject buildMenu;
     private static CatSpawner catSpawner;
+    private static Home home;
 
     public static void Init()
     {
@@ -25,6 +26,7 @@ public class GameState : MonoBehaviour
         weapon = GameObject.FindGameObjectWithTag("Weapon");
         buildMenu = GameObject.FindGameObjectWithTag("BuildingPanel");
         catSpawner = GameObject.FindGameObjectWithTag("CatSpawner").GetComponent<CatSpawner>();
+        home = GameObject.FindGameObjectWithTag("Home").GetComponent<Home>();
         enemiesLeft = 0;
         SwitchState("build");
 
@@ -100,5 +102,10 @@ public class GameState : MonoBehaviour
         {
             numberOfCats = 0;
         }
+    }
+
+    public static void EndGame()
+    {
+        home.takeDamage(200);
     }
 }

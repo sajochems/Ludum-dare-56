@@ -33,15 +33,20 @@ public class WaveSpawner : MonoBehaviour
     
     private void FixedUpdate()
     {
+        if(currentWaveIndex == 21)
+        {
+            GameState.EndGame();
+        }
         if(countdown > 0)
         {
             countdown -= Time.deltaTime;
         }
 
-        if (countdown <= 10 && spawningWave == currentWaveIndex)
+        if (countdown <= 10 && GameState.enemiesLeft > 0)
         {
             //Always have a build phase 
             countdown = 10;
+            return;
         }
 
         if (countdown <= 0 && spawningWave != currentWaveIndex)
