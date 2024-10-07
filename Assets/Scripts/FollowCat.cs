@@ -30,7 +30,7 @@ public class FollowCat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        counter += Time.deltaTime;
+        /*counter += Time.deltaTime;
         if (counter >= 100 / attackSpeed)
         {
             if (targets.Count > 0)
@@ -47,7 +47,7 @@ public class FollowCat : MonoBehaviour
                 }
 
             }
-        }
+        }*/
     }
 
     private void FixedUpdate()

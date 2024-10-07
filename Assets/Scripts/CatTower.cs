@@ -15,7 +15,7 @@ class CatTower : Tower
     void Start()
     {
         targets = new Queue<Enemy>();
-        bulletSpeed = 2f;
+        bulletSpeed = 4f;
         bulletDamage = 20;
         attackSpeed = 500f;
 
