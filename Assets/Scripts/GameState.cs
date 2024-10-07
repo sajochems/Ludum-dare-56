@@ -28,7 +28,7 @@ public class GameState : MonoBehaviour
         SwitchState("build");
 
         score = 0;
-        catfood = 0;
+        catfood = 50;
         numberOfCats = 0;
     }
 

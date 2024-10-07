@@ -95,6 +95,18 @@ public class PlayerController : MonoBehaviour
                     Debug.Log("To expensive");
                 }
             }
+
+            if (triggerObject.name == "FireCatShop")
+            {
+                if (GameState.catfood >= 1000)
+                {
+                    triggerObject.GetComponent<FireCatShop>().BuyCat();
+                }
+                else
+                {
+                    Debug.Log("To expensive");
+                }
+            }
         }
     }
 
@@ -121,7 +133,7 @@ public class PlayerController : MonoBehaviour
         if (col.gameObject.tag == "Cat")
         {
             col.GetComponent<Cat>().GrabThatCat();
-        } else if (col.gameObject.name == "GunCatShop")
+        } else if (col.gameObject.name == "GunCatShop" || col.gameObject.name == "FireCatShop")
         {
             triggerObject = col.gameObject;
         }
@@ -129,7 +141,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "GunCatShop")
+        if (collision.gameObject.name == "GunCatShop" || collision.gameObject.name == "FireCatShop")
         {
             triggerObject = null;
         }

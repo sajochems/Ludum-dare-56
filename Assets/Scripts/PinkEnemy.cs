@@ -29,7 +29,7 @@ class PinkEnemy : Enemy
 
         System.Random rand = new System.Random();
         health = rand.Next(10, 120);
-        speed = 1f;
+        speed = 0.8f;
         strength = rand.Next(1, 10);
 
         //100f is 1 attack per second

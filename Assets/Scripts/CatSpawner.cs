@@ -19,7 +19,7 @@ public class CatSpawner : MonoBehaviour
     private void Start()
     {
         CoordinateSampler = new RadialCoordinateSampler(innerCatRadius, outeraCatRadius);
-        countdown = 5f;
+        countdown = 1f;
     }
 
     private void FixedUpdate()

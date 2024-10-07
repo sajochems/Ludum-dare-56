@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GunCat : MonoBehaviour
+public class FireCat : MonoBehaviour
 {
     public Rigidbody2D rb;
 
     public Transform bulletSpawnPoint;
     public GameObject bulletPrefab;
     public float bulletSpeed = 2f;
-    public int bulletDamage = 20;
+    public int bulletDamage = 100;
 
-    public float attackSpeed = 500f;
+    public float attackSpeed = 200f;
 
     public float speed = 2f;
 
