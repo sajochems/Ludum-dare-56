@@ -1,23 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class Home : MonoBehaviour
 {
-    public float health = 1000f;
+    public int health = 100;
 
     public void UseHouse()
     {
         Debug.Log("Hello house");
     }
 
-    public void takeDamage(float damage)
+    public void takeDamage(int damage)
     {
         health -= damage;
         if (health <= 0)
         {
-            Destroy(gameObject);
-            Debug.Log("You lose");
+            SceneManager.LoadScene(2);
         }
 
     }

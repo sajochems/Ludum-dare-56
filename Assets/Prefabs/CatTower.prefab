@@ -131,13 +131,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc091afe4d7f891489c321428fbe48d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  catFoodCost: 50
+  catCost: 1
   bulletSpawnPoint: {fileID: 5788164007548823388}
   bulletPrefab: {fileID: 1676038088555040346, guid: 8dad45bcdba2ab746a607f11da499753, type: 3}
-  bulletSpeed: 10
-  bulletDamage: 20
-  attackSpeed: 50
-  catFoodCost: 20
-  catCost: 1
 --- !u!58 &5788164007548823390
 CircleCollider2D:
   m_ObjectHideFlags: 0

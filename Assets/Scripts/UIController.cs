@@ -10,11 +10,16 @@ public class UIController : MonoBehaviour
 
     public TMP_Text scoreAmount;
 
+    public TMP_Text houseHealth;
+
+    private Home home;
+
     private void Start()
     {
         catFoodAmount.SetText("0");
         catAmount.SetText("0");
         scoreAmount.SetText("0");
+        home = GameObject.FindGameObjectWithTag("Home").GetComponent<Home>();
     }
 
     private void Update()
@@ -27,6 +32,9 @@ public class UIController : MonoBehaviour
 
         int cats = GameState.numberOfCats;
         catAmount.SetText(cats.ToString());
+
+        int homeHealth = home.health;
+        houseHealth.SetText(homeHealth.ToString() + "/100");
     }
 
 }

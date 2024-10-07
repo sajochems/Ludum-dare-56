@@ -31,6 +31,7 @@ public class Cat : MonoBehaviour
     public void GrabThatCat()
     {
         GameState.IncreaseCats(1);
+        GameState.IncreaseScore(10);
         Vector3 position = new Vector3(transform.position.x, transform.position.y, 0);
         Instantiate(catPrefab, position, transform.rotation);
 

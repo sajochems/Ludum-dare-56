@@ -29,7 +29,7 @@ class PinkEnemy : Enemy
 
         System.Random rand = new System.Random();
         health = rand.Next(10, 120);
-        speed = 0.25f;
+        speed = 1f;
         strength = rand.Next(1, 10);
 
         //100f is 1 attack per second
@@ -50,6 +50,7 @@ class PinkEnemy : Enemy
         //rb.velocity = new Vector2(playerDirection.x * speed, playerDirection.y * speed);
 
         Vector2 homeDirection = new Vector2(0f - transform.position.x, 0f - transform.position.y);
+        homeDirection = homeDirection.normalized;
         rb.velocity = new Vector2(homeDirection.x * speed, homeDirection.y * speed);
 
         if (inRangeOfHome)

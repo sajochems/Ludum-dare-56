@@ -31,6 +31,6 @@ public class Weapon : MonoBehaviour
     {
         var bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
         bullet.GetComponent<Bullet>().SetDamage(bulletDamage);
-        bullet.GetComponent<Rigidbody2D>().velocity = bulletSpawnPoint.right * bulletSpeed;
+        bullet.GetComponent<Rigidbody2D>().velocity = bulletSpawnPoint.right.normalized * bulletSpeed;
     }
 }

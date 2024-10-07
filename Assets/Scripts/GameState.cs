@@ -26,6 +26,10 @@ public class GameState : MonoBehaviour
         buildMenu = GameObject.FindGameObjectWithTag("BuildingPanel");
         enemiesLeft = 0;
         SwitchState("build");
+
+        score = 0;
+        catfood = 0;
+        numberOfCats = 0;
     }
 
     public static void SwitchState(string state)

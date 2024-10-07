@@ -75,8 +75,8 @@ public class WaveSpawner : MonoBehaviour
 
     private void GenerateNextWave() {
         int numEnemies = 6 + (int)Math.Pow(2, currentWaveIndex + 1);
-        float timeToNextEnemy = Mathf.Max(0.01f, 2f - ( 0.9f * (float)currentWaveIndex));
-        int timeToNextWave = Mathf.Max(22, (30 - currentWaveIndex));
+        float timeToNextEnemy = Mathf.Max(0.0001f, 2f - ( 0.2f * (float)currentWaveIndex+1));
+        int timeToNextWave = Mathf.Max(25, (30 - currentWaveIndex));
         waves.AddLast(new Wave(numEnemies, timeToNextEnemy, timeToNextWave));
     }
 }
