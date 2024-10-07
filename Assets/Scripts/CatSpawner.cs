@@ -40,7 +40,6 @@ public class CatSpawner : MonoBehaviour
 
     private IEnumerator SpawnWave(int numCats, float spawnspeed)
     {
-        Debug.Log("Spawning wave: " + currentWaveIndex);
         for (int i = 0; i < numCats; i++)
         {
             Vector2 coordinates = CoordinateSampler.SamplePoint(true);

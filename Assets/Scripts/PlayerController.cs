@@ -90,10 +90,6 @@ public class PlayerController : MonoBehaviour
                 {
                     triggerObject.GetComponent<GunCatShop>().BuyCat();
                 }
-                else
-                {
-                    Debug.Log("To expensive");
-                }
             }
 
             if (triggerObject.name == "FireCatShop")
@@ -101,10 +97,6 @@ public class PlayerController : MonoBehaviour
                 if (GameState.catfood >= 1000)
                 {
                     triggerObject.GetComponent<FireCatShop>().BuyCat();
-                }
-                else
-                {
-                    Debug.Log("To expensive");
                 }
             }
         }
