@@ -15,9 +15,9 @@ class LaserTower : Tower
     void Start()
     {
         targets = new Queue<Enemy>();
-        bulletSpeed = 5f;
-        bulletDamage = 50;
-        attackSpeed = 2000f;
+        bulletSpeed = 10f;
+        bulletDamage = 69;
+        attackSpeed = 1000f;
 
         catFoodCost = 100;
         catCost = 10;

@@ -9,11 +9,12 @@ public class Bullet : MonoBehaviour
     private int bulletDamage = 1;
     
     public AudioClip clip;
+    public float volume;
 
     private void Awake()
     {
         
-        AudioSource.PlayClipAtPoint(clip, gameObject.transform.localPosition, 0.25f);
+        AudioSource.PlayClipAtPoint(clip, gameObject.transform.localPosition, volume);
         Destroy(gameObject, life);
     }
 

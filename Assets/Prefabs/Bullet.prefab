@@ -86,6 +86,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   life: 5
   clip: {fileID: 8300000, guid: 37d908f635fc8e0469df32a3cd278be0, type: 3}
+  volume: 0.1
 --- !u!1 &4596238674724187332
 GameObject:
   m_ObjectHideFlags: 0
