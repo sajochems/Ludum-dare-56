@@ -6,6 +6,7 @@ using UnityEngine;
 public class Cat : MonoBehaviour
 {
     public GameObject catPrefab;
+    public CatSpawner catSpawner;
 
     private AudioSource audioSource;
     private int randomSeed;

@@ -16,14 +16,22 @@ public class CatSpawner : MonoBehaviour
     private int spawningWave = -1;
     private RadialCoordinateSampler CoordinateSampler;
 
+    [HideInInspector]
+    public int catCount = 0;
+
     private void Start()
     {
         CoordinateSampler = new RadialCoordinateSampler(innerCatRadius, outeraCatRadius);
         countdown = 1f;
+        catCount = 0;
     }
 
     private void FixedUpdate()
     {
+        if(catCount > 50)
+        {
+            return;
+        }
         if (countdown > 0)
         {
             countdown -= Time.deltaTime;
@@ -46,6 +54,7 @@ public class CatSpawner : MonoBehaviour
             Vector3 spawn = new Vector3(coordinates.x, coordinates.y, 0);
 
             Instantiate(cat, spawn, Quaternion.identity);
+            catCount += 1;
             yield return new WaitForSeconds(spawnspeed);
         }
 

@@ -14,7 +14,8 @@ public class GunCatShop : MonoBehaviour
     }
     public void BuyCat()
     {
-        GameState.DecreaseCatfood(50);
+        GameState.DecreaseCatfood(100);
+        GameState.DecreaseCats(1);
         Instantiate(gunCatPrefab, transform.position, transform.rotation);
     }
 

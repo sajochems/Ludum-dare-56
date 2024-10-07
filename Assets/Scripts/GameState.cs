@@ -17,13 +17,14 @@ public class GameState : MonoBehaviour
 
     private static GameObject weapon;
     private static GameObject buildMenu;
-    
+    private static CatSpawner catSpawner;
 
     public static void Init()
     {
         //There has to be a better way to do this
         weapon = GameObject.FindGameObjectWithTag("Weapon");
         buildMenu = GameObject.FindGameObjectWithTag("BuildingPanel");
+        catSpawner = GameObject.FindGameObjectWithTag("CatSpawner").GetComponent<CatSpawner>();
         enemiesLeft = 0;
         SwitchState("build");
 
@@ -94,6 +95,7 @@ public class GameState : MonoBehaviour
     public static void DecreaseCats(int change)
     {
         numberOfCats -= change;
+        catSpawner.catCount -= change;
         if (numberOfCats < 0)
         {
             numberOfCats = 0;

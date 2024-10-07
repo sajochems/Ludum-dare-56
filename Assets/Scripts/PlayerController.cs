@@ -86,7 +86,7 @@ public class PlayerController : MonoBehaviour
         {
             if (triggerObject.name == "GunCatShop")
             {
-                if (GameState.catfood >= 50)
+                if (GameState.catfood >= 100 && GameState.numberOfCats >= 1)
                 {
                     triggerObject.GetComponent<GunCatShop>().BuyCat();
                 }
@@ -94,7 +94,7 @@ public class PlayerController : MonoBehaviour
 
             if (triggerObject.name == "FireCatShop")
             {
-                if (GameState.catfood >= 1000)
+                if (GameState.catfood >= 2000 && GameState.numberOfCats >= 1)
                 {
                     triggerObject.GetComponent<FireCatShop>().BuyCat();
                 }
