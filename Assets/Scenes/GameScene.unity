@@ -2939,7 +2939,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   innerCatRadius: 1
-  outeraCatRadius: 4
+  outeraCatRadius: 3
   cat: {fileID: 2705834428900756450, guid: 7d6a159731447244cba3542864abf119, type: 3}
   currentWaveIndex: 0
 --- !u!4 &1443240279
