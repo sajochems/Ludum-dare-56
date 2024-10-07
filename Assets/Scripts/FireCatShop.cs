@@ -16,6 +16,7 @@ public class FireCatShop : MonoBehaviour
     {
         GameState.DecreaseCatfood(2000);
         GameState.DecreaseCats(1);
+        Destroy(GameObject.FindGameObjectWithTag("FollowCat"));
         Instantiate(fireCatPrefab, transform.position, transform.rotation);
     }
 

@@ -16,6 +16,7 @@ public class GunCatShop : MonoBehaviour
     {
         GameState.DecreaseCatfood(100);
         GameState.DecreaseCats(1);
+        Destroy(GameObject.FindGameObjectWithTag("FollowCat"));
         Instantiate(gunCatPrefab, transform.position, transform.rotation);
     }
 
