@@ -16,8 +16,8 @@ class LongRangeTower : Tower
     {
         targets = new Queue<Enemy>();
         bulletSpeed = 10f;
-        bulletDamage = 100;
-        attackSpeed = 1000f;
+        bulletDamage = 20;
+        attackSpeed = 2000f;
 
         catFoodCost = 2000;
         catCost = 10;
