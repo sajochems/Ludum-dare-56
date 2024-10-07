@@ -33,13 +33,14 @@ public class CatSpawner : MonoBehaviour
         {
             countdown = 20f;
             spawningWave = currentWaveIndex;
-            int numCats = 3 + currentWaveIndex/2;
+            int numCats = 3 + currentWaveIndex;
             StartCoroutine(SpawnWave(numCats, 2f));
         }
     }
 
     private IEnumerator SpawnWave(int numCats, float spawnspeed)
-    {    
+    {
+        Debug.Log("Spawning wave: " + currentWaveIndex);
         for (int i = 0; i < numCats; i++)
         {
             Vector2 coordinates = CoordinateSampler.SamplePoint(true);

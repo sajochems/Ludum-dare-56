@@ -18,6 +18,8 @@ public class WaveSpawner : MonoBehaviour
     private int spawningWave = -1;
     private RadialCoordinateSampler CoordinateSampler;
 
+    private bool doneSpawning;
+
     private void Start()
     {
         CoordinateSampler = new RadialCoordinateSampler(innerEnemyRadius, outerEnemyRadius);
@@ -26,6 +28,7 @@ public class WaveSpawner : MonoBehaviour
         waves.AddFirst(new Wave(6, 2, 30));
 
         countdown = 5;
+        doneSpawning = true;
     }
     
     private void FixedUpdate()
@@ -33,9 +36,15 @@ public class WaveSpawner : MonoBehaviour
         if(countdown > 0)
         {
             countdown -= Time.deltaTime;
-        }        
+        }
 
-        if(countdown <= 0 && spawningWave != currentWaveIndex)
+        if (countdown <= 10 && spawningWave == currentWaveIndex)
+        {
+            //Always have a build phase 
+            countdown = 10;
+        }
+
+        if (countdown <= 0 && spawningWave != currentWaveIndex)
         {        
             countdown = waves.First.Value.timeToNextWave;
             StartCoroutine(SpawnWave());
@@ -75,7 +84,7 @@ public class WaveSpawner : MonoBehaviour
 
     private void GenerateNextWave() {
         int numEnemies = 6 + (int)Math.Pow(2, currentWaveIndex + 1);
-        float timeToNextEnemy = Mathf.Max(0.0001f, 2f - ( 0.2f * (float)currentWaveIndex+1));
+        float timeToNextEnemy = Mathf.Max(0.001f, 2f - ( 0.2f * (float)currentWaveIndex+1));
         int timeToNextWave = Mathf.Max(25, (30 - currentWaveIndex));
         waves.AddLast(new Wave(numEnemies, timeToNextEnemy, timeToNextWave));
     }
