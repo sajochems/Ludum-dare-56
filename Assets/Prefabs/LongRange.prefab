@@ -87,7 +87,7 @@ MonoBehaviour:
   life: 2
   targets: 5
   clip: {fileID: 8300000, guid: 91c9d5eb07c0d664793752c7e04803b7, type: 3}
-  volume: 0.3
+  volume: 1
 --- !u!1 &4596238674724187332
 GameObject:
   m_ObjectHideFlags: 0

@@ -71,7 +71,7 @@ MonoBehaviour:
   life: 5
   targets: 10
   clip: {fileID: 8300000, guid: 37d908f635fc8e0469df32a3cd278be0, type: 3}
-  volume: 0.1
+  volume: 0.3
 --- !u!58 &5753561973221604098
 CircleCollider2D:
   m_ObjectHideFlags: 0
