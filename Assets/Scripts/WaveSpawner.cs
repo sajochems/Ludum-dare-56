@@ -34,7 +34,7 @@ public class WaveSpawner : MonoBehaviour
     private void FixedUpdate()
     {
         
-        if(currentWaveIndex >= 16)
+        if(currentWaveIndex >= 13)
         {
             GameState.EndGame();
         }
